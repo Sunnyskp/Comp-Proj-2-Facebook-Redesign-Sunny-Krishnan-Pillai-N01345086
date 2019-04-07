@@ -1,6 +1,44 @@
+a.navbar-dropdown{
+	color: rgb(0, 0, 0);
+	}
+a.navbar-item{
+color: rgb(255, 255, 255);
+}
+a.navbar-link{
+	color: #ffffff;
+	}
+
 .style{
    padding: 1em 1em;
 }
-.nav-bar-style{
-   margin-bottom:1em;
+
+.header-style{
+	background-color: #3C5A99;
 }
+
+.hero-bg{
+   background-image: url(../img/hero-bg.png);
+}
+
+.login
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 350px;
+	height: 520px;
+	padding: 80px 40px;
+	box-sizing: border-box;
+   background:rgb(59, 89, 152,0.8);
+   border-radius: 2em;
+}
+.logo-style{
+	background-color: #3C5A99;
+	width:10em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: auto;
+	}
+
