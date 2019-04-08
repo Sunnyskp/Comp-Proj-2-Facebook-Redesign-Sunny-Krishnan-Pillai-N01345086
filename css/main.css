@@ -64,5 +64,6 @@ div.columns-style{
 	}
 
 	.content.image-style{
-		align-content: center;
+		text-align: center;
+		width:30em;
 	}

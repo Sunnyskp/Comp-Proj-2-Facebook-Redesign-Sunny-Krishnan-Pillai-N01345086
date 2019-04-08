@@ -30,7 +30,13 @@
     }
 
     .checkbox-style{
-        margin-top: 3em;
-        margin-bottom: 2em;
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
 
+    .upload-file-style{
+        background-color: #ffffff;
+        color: #000;
+        border-style: none;
+       border-radius: 0.25em;
     }
