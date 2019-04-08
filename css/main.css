@@ -14,27 +14,19 @@ a.navbar-link{
 
 .header-style{
 	background-color: #3C5A99;
+	border-radius: 0.5em;
 }
 
 .hero-bg{
    background-image: url(../img/hero-bg.png);
 }
 
-.login
-{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	width: 350px;
-	height: 520px;
-	padding: 80px 40px;
-	box-sizing: border-box;
-   background:rgb(59, 89, 152,0.8);
-   border-radius: 2em;
+a.navbar-burger{
+	color: #ffffff;
 }
-.logo-style{
-	background-color: #3C5A99;
+
+
+.logo-column-style{
 	width:10em;
 	margin-left: auto;
 	margin-right: auto;
@@ -42,3 +34,31 @@ a.navbar-link{
 	margin-bottom: auto;
 	}
 
+div.columns-style{
+	margin-top: 1em;
+}
+
+@media screen and (max-width:768px) {
+
+	.logo-style{
+		display: none;
+	}
+
+	.menu{
+		display: none;
+	}
+
+	}
+	.login
+	{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		width: 350px;
+		height: 520px;
+		padding: 80px 40px;
+		box-sizing: border-box;
+	   background:rgb(59, 89, 152,0.8);
+	   border-radius: 2em;
+	}

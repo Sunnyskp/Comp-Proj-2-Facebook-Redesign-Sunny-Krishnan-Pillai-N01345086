@@ -1,26 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login/Signup to your Facebook Account</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
-  <body class="hero-bg">
-            <div class="login">
-                    <img src="../img/Newfb-logo.png">
-                    <form>
-                        <p>Email</p>
-                        <input type="text" name="" placeholder="Enter Email">
-                        <p>Password</p>
-                        <input type="password" name="" placeholder="••••••">
-                        <input type="submit" href="../index.html" name="" value="Sign In">
-                        <a href="#">Forget Password</a>
-                        <a href="#">Sign Up</a>
-                    </form>
-                </div>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Redesign-Facebook(fb)</title>
+  <meta name="Redesign-Facebook(fb)" content="Redesign-Facebook(fb)">
+  <meta name="Sunny Krishnan Pillai" content="Redesign-Facebook(fb)">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body class="hero-bg">
+  <div class="login">
+    <div class="logo"><img src="../img/Newfb-logo.png"></div>
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input class="input" type="email" placeholder="Email">
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+        <span class="icon is-small is-right">
+          <i class="fas fa-check"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="password" placeholder="Password">
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <button class="button is-info">
+          Login
+        </button>
+        <button class="button is-text has-text-black">
+          Forgot Password
+        </button>
+      </p>
+    </div>
+  </div>
+</body>
+
 </html>
