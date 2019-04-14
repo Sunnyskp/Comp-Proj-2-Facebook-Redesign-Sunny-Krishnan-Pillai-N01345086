@@ -1,22 +1,22 @@
 const eleFbPosts = document.getElementById("fbPosts");
 const eleUserInput = document.getElementById("UserInput")
+const eleProfPic = document.getElementById("profPic")
+const storePosts = [];
 const newPost = () => {
-  eleFbPosts.innerHTML = `<div class="column is-mobile is-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+  storePosts.unshift(`<div class="column is-one-quarter is-mobile is-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
   <article class="media">
     <figure class="media-left">
-      <p class="image is-64x64">
-        <img src="..\img\prof-pic-3.jpg" class="image is-rounded"><br>
+      <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
       </p>
     </figure>
     <div class="media-content">
       <div class="content">
         <p>
           <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-          <div>${eleUserInput.value}</div>
-          </p>
-
+          <br>${eleUserInput.value}</p>
       </div>
-      <nav class="level is-mobile footer">
+      <nav class="level is-mobile">
         <div class="level-left">
           <a class="level-item">
             <span class="icon is-small"><i class="fas fa-comment"></i></span>
@@ -40,5 +40,10 @@ const newPost = () => {
       </nav>
     </div>
   </article>
-</div>` + eleFbPosts.innerHTML;  
+</div>`);
+  const post2String = JSON.stringify(storePosts);
+  localStorage.setItem("FacebookPosts",post2String);
+  localStorage.getItem("FacebookPosts",post2String);
+  const string2Post = JSON.parse(post2String);
+  eleFbPosts.innerHTML = string2Post;
 }
