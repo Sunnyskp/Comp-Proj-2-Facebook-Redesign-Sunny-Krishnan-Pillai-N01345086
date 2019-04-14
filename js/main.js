@@ -47,3 +47,24 @@ const newPost = () => {
   const string2Post = JSON.parse(post2String);
   eleFbPosts.innerHTML = string2Post;
 }
+
+let attempt = 3;
+let validate = () => {
+let username = document.getElementById("username").value;
+let password = document.getElementById("password").value;
+if ( username == "Sunnyskp" && password == "sunny123"){
+window.location = "index.html";
+}
+else{
+attempt --;
+alert("You have left "+attempt+" attempt;");
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("loginButton").disabled = true;
+return false;
+}
+}
+}
+
+
