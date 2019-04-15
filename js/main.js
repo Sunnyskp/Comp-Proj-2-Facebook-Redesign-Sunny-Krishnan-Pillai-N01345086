@@ -4,7 +4,7 @@ const eleProfPic = document.getElementById("profPic")
 const storePosts = [];
 const newPost = () => {
   storePosts.unshift(`
-<div onclick="viewPost()" class="column is-mobile is-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
+<div onclick="viewPost()" class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
@@ -14,7 +14,7 @@ const newPost = () => {
     <div class="media-content">
       <div class="content">
         <p>
-          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small><br>
           ${eleUserInput.value}
         </p>
       </div>

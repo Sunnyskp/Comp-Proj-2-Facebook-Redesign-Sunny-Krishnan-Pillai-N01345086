@@ -36,6 +36,27 @@ a.navbar-burger{
 
 div.columns-style{
 	margin-top: 1em;
+	border: 1px;
+	padding: 1em;
+	border-style: solid;
+	border-color: #3C5A99;
+	border-radius: 8px;
+	
+}
+
+
+
+#fbPosts > .column-style{
+	margin-top: 1em;
+	padding: 1em;
+	border: 0.25px;
+	border-style: solid;
+	border-color: #3C5A99;
+	border-radius: 8px;
+	box-shadow: 1px 2px 4px #3C5A99;
+	min-width: 24em;
+	height: 24em;
+	overflow: hidden;
 	
 }
 
@@ -49,22 +70,29 @@ div.columns-style{
 		display: none;
 	}
 
+	#fbPosts > .column-style{
+		width:fit-content;
 	}
-	.login
-	{
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%,-50%);
-		width: 350px;
-		height: 520px;
-		padding: 80px 40px;
-		box-sizing: border-box;
-	   background:rgb(59, 89, 152,0.8);
-	   border-radius: 2em;
+
 	}
+
 
 	.content.image-style{
 		text-align: center;
 		width:30em;
 	}
+
+	@media screen and (min-width:769px) {
+		.menu-list-style{
+			border: 0.25px;
+			border-style: solid;
+			border-color: #3C5A99;
+			border-radius: 8px;
+			box-shadow: 1px 2px 4px #3C5A99;
+			margin-top: 1em;
+			margin-right: 0.5em;
+		}
+	}
+
+
+
