@@ -48,13 +48,13 @@ div.columns-style{
 
 #fbPosts > .column-style{
 	margin-top: 1em;
-	padding: 1em;
+	padding: 0.5em;
 	border: 0.25px;
 	border-style: solid;
 	border-color: #3C5A99;
 	border-radius: 8px;
 	box-shadow: 1px 2px 4px #3C5A99;
-	min-width: 24em;
+	min-width: 18em;
 	height: 24em;
 	overflow: hidden;
 	

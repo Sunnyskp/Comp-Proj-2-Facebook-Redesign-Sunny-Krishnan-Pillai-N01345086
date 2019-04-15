@@ -20,7 +20,7 @@ const newPost = () => {
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
-          <a class="level-item">
+          <a class="level-item"> 
             <span class="icon is-small"><i class="fas fa-comment"></i></span>
           </a>
           <a class="level-item">
