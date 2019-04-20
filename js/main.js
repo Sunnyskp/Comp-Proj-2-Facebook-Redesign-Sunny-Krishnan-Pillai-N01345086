@@ -2,6 +2,7 @@ const eleFbPosts = document.getElementById("fbPosts");
 const eleUserInput = document.getElementById("UserInput")
 const eleProfPic = document.getElementById("profPic")
 const storePosts = [];
+
 const newPost = () => {
   storePosts.unshift(`
 <div onclick="viewPost()" class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
@@ -43,11 +44,11 @@ const newPost = () => {
     </div>
   </article>
 </div>`);
-  const post2String = JSON.stringify(storePosts);
-  localStorage.setItem("FacebookPosts",post2String);
-  localStorage.getItem("FacebookPosts",post2String);
-  const string2Post = JSON.parse(post2String);
-  eleFbPosts.innerHTML = string2Post;
+const post2String = JSON.stringify(storePosts);
+localStorage.setItem("FacebookPosts",post2String);
+localStorage.getItem("FacebookPosts",post2String);
+const string2Post = JSON.parse(post2String);
+eleFbPosts.innerHTML= string2Post.join([separator = '  ']);
 }
 
 let viewPost = () => {

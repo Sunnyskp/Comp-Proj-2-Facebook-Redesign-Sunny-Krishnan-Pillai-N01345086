@@ -35,19 +35,16 @@ a.navbar-burger{
 	}
 
 div.columns-style{
-	margin-top: 1em;
+	margin-top: 0.5em;
 	border: 1px;
 	padding: 1em;
-	border-style: solid;
-	border-color: #3C5A99;
-	border-radius: 8px;
 	
 }
 
 
 
 #fbPosts > .column-style{
-	margin-top: 1em;
+	margin: 0.5em;
 	padding: 0.5em;
 	border: 0.25px;
 	border-style: solid;
@@ -74,6 +71,11 @@ div.columns-style{
 		width:fit-content;
 	}
 
+	.button-style{
+		margin: 0.5rem 0;
+		width:100%;
+	}
+
 	}
 
 
@@ -89,8 +91,7 @@ div.columns-style{
 			border-color: #3C5A99;
 			border-radius: 8px;
 			box-shadow: 1px 2px 4px #3C5A99;
-			margin-top: 1em;
-			margin-right: 0.5em;
+			margin: 0.5em;
 		}
 	}
 
