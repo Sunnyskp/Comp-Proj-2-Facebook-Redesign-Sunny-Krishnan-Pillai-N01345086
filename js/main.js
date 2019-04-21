@@ -73,6 +73,19 @@ window.onload = displayPosts = () => {
   }
 }
 
+const searchPost=()=> {
+  let eleSearch = document.documentElement.innerHTML; 
+  let n = eleSearch.search(`${document.getElementById('searchInput').value}`);
+  if (n==-1)
+  {
+    alert(`Search Not Found`);
+  }
+  else{
+  alert(`*****  Found in Character number ${n}  *****`);
+  n.value.style.color = "blue";
+  }
+}
+
 const viewPost = () => 
 { 
   const displayPosts = document.getElementById(1);
@@ -142,6 +155,15 @@ const closeViewPost = () => {
     eleFbPosts.innerHTML= string2Post.join([separator = '  ']);
 }
 
+// let upload = () => {
+//   let getFile = document.getElementById("uploadFile");
+//   let file = getFile.file[0];
+
+//   var preview = document.getElementById("preview");
+//   preview.src = file.getAsDataURL();
+
+//   return false;
+// };
 
 // const editPost= () => {
 
