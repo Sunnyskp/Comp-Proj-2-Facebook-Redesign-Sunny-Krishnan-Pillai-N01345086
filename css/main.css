@@ -53,7 +53,7 @@ div.columns-style{
 	box-shadow: 1px 2px 4px #3C5A99;
 	min-width: 18em;
 	height: 24em;
-	overflow: hidden;
+	overflow-y: auto;
 	
 }
 

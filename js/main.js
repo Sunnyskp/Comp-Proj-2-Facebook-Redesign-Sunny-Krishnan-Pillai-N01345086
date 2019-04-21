@@ -1,11 +1,90 @@
 const eleFbPosts = document.getElementById("fbPosts");
-const eleUserInput = document.getElementById("UserInput")
-const eleProfPic = document.getElementById("profPic")
+const eleUserInput = document.getElementById("UserInput");
+const eleProfPic = document.getElementById("profPic");
 const storePosts = [];
-
+ let counter = 0;
 const newPost = () => {
-  storePosts.unshift(`
-<div onclick="viewPost()" class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+  let assignId = (function () {
+    
+       return function () 
+    {
+      counter += 1; 
+      return counter
+    }
+  })();
+
+storePosts.unshift(`
+<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
+      </p>
+    </figure>
+    <div  class="media-content">
+      <div onclick="viewPost()" class="content">
+        <p>
+          <strong>Sunny Skp</strong> <small>@Sunny skp</small> <br>
+          <div id="${assignId()}">${eleUserInput.value}</div>
+        </p>
+      </div>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item"> 
+            <span class="icon is-small"><i class="fas fa-comment"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-share-square"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+          </a>
+          <a   class="level-item">
+            <span onclick="likeButton()" class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+</div>`);
+const post2String = JSON.stringify(storePosts);
+localStorage.setItem("FacebookPosts",post2String);
+localStorage.getItem("FacebookPosts",post2String);
+const string2Post = JSON.parse(post2String);
+eleFbPosts.innerHTML= string2Post.join([separator = '  ']);
+eleUserInput.value="";
+}
+
+window.onload = displayPosts = () => {
+  let fbPosts = localStorage.getItem("FacebookPosts");
+  if (fbPosts !== null) {
+  const string2Post = JSON.parse(fbPosts);
+  eleFbPosts.innerHTML+= string2Post.join([separator = '  ']);
+  }
+  else{
+    eleFbPosts.innerHTML=`<div class="title is-1 is-full has-text-centered has-text-link">----WELCOME TO NEW-REDESIGNED FACEBOOK----</div>
+    <div class="title is-2 has-text-centered is-full is-family-monospace has-text-info">------SHARE YOUR THOUGHTS WITH THE WORLD...!!!------</div>`;
+  }
+}
+
+const viewPost = () => 
+{ 
+  const displayPosts = document.getElementById(1);
+  eleFbPosts.innerHTML = `
+<div class="modal is-active">
+<div class="modal-background"></div>
+<div class="modal-card">
+  <header class="modal-card-head">
+    <p class="modal-card-title "><p class="image is-64x64" id="profPic">${eleProfPic.innerHTML}</p></p>
+  </header>
+  <section class="modal-card-body">
+  <div onclick="viewPost()" class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
@@ -15,8 +94,8 @@ const newPost = () => {
     <div class="media-content">
       <div class="content">
         <p>
-          <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small><br>
-          ${eleUserInput.value}
+          <strong>Sunny Skp</strong> <small>@Sunny skp</small> <br>
+          <div>${displayPosts.innerHTML}</div>
         </p>
       </div>
       <nav class="level is-mobile">
@@ -34,7 +113,7 @@ const newPost = () => {
             <span class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
           </a>
           <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-edit"></i></span>
+            <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
           </a>
           <a class="level-item">
             <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
@@ -43,75 +122,31 @@ const newPost = () => {
       </nav>
     </div>
   </article>
-</div>`);
-const post2String = JSON.stringify(storePosts);
-localStorage.setItem("FacebookPosts",post2String);
-localStorage.getItem("FacebookPosts",post2String);
-const string2Post = JSON.parse(post2String);
-eleFbPosts.innerHTML= string2Post.join([separator = '  ']);
+</div>
+  </section>
+  <footer class="modal-card-foot">
+    <button class="button is-success">Save changes</button>
+    <button onclick="closeViewPost()" class="button">Cancel</button>
+  </footer>
+</div>
+</div>`;  
 }
 
-let viewPost = () => {
-  eleFbPosts.innerHTML = `
-  <div class="modal is-active">
-  <div class="modal-background"></div>
-  <div class="modal-card">
-    <header class="modal-card-head">
-      <p class="modal-card-title">Modal title</p>
-      <button onclick="closeViewPost()" class="delete" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body">
-    <div onclick="viewPost()" class="column is-one-quarter is-mobile is-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd">
-    <article class="media">
-      <figure class="media-left">
-        <p class="image is-64x64 is-rounded">
-          ${eleProfPic.innerHTML}<br>
-        </p>
-      </figure>
-      <div class="media-content">
-        <div class="content">
-          <p>
-            <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-            ${eleUserInput.value}
-          </p>
-        </div>
-        <nav class="level is-mobile">
-          <div class="level-left">
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-comment"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-share-square"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-heart"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-edit"></i></span>
-            </a>
-            <a class="level-item">
-              <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
-            </a>
-          </div>
-        </nav>
-      </div>
-    </article>
-  </div>
-    </section>
-    <footer class="modal-card-foot">
-      <button class="button is-success">Save changes</button>
-      <button onclick="closeViewPost()" class="button">Cancel</button>
-    </footer>
-  </div>
-</div>`;
+const likeButton = () => {
+ Object.style.color = "red";
 }
 
 const closeViewPost = () => {
-  window.location = "index.html";
+    let fbPosts = localStorage.getItem("FacebookPosts");
+    const string2Post = JSON.parse(fbPosts);
+    eleFbPosts.innerHTML= string2Post.join([separator = '  ']);
 }
+
+
+// const editPost= () => {
+
+
+// }
 
 let attempt = 3;
 let validate = () => {
