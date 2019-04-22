@@ -100,7 +100,7 @@ const viewPost = () =>
   </header>
   <section class="modal-card-body">
   <div onclick="viewPost()" class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
-  <article id="${assignId()}" class="media">
+  <article class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
         ${eleProfPic.innerHTML}<br>
