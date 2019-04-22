@@ -12,10 +12,14 @@ const newPost = () => {
       return counter
     }
   })();
+  let getPostId=`postId${assignId()-1}`;
+  let getEditId=`editId${assignId()-2}`;
+  let getLikeId=`likePost${assignId()-3}`;
+  
 
 storePosts.unshift(`
 <div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
-  <article class="media">
+  <article id="${getPostId}" class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
         ${eleProfPic.innerHTML}<br>
@@ -25,7 +29,7 @@ storePosts.unshift(`
       <div onclick="viewPost()" class="content">
         <p>
           <strong>Sunny Skp</strong> <small>@Sunny skp</small> <br>
-          <div id="${assignId()}">${eleUserInput.value}</div>
+          <div>${eleUserInput.value}</div>
         </p>
       </div>
       <nav class="level is-mobile">
@@ -34,16 +38,13 @@ storePosts.unshift(`
             <span class="icon is-small"><i class="fas fa-comment"></i></span>
           </a>
           <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-share-square"></i></span>
-          </a>
-          <a class="level-item">
             <span class="icon is-small"><i class="fas fa-heart"></i></span>
           </a>
-          <a   class="level-item">
+          <a id="${getLikeId}"  class="level-item">
             <span onclick="likeButton()" class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
           </a>
           <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
+            <span id="${getEditId}" class="icon is-small"><i class="fas fa-edit editPost"></i></span>
           </a>
           <a class="level-item">
             <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
@@ -73,6 +74,9 @@ window.onload = displayPosts = () => {
   }
 }
 
+
+
+
 const searchPost=()=> {
   let eleSearch = document.documentElement.innerHTML; 
   let n = eleSearch.search(`${document.getElementById('searchInput').value}`);
@@ -86,9 +90,10 @@ const searchPost=()=> {
   }
 }
 
+
 const viewPost = () => 
 { 
-  const displayPosts = document.getElementById(1);
+  const displayPosts = document.getElementById('fbPosts');
   eleFbPosts.innerHTML = `
 <div class="modal is-active">
 <div class="modal-background"></div>
@@ -112,27 +117,24 @@ const viewPost = () =>
         </p>
       </div>
       <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item"> 
-            <span class="icon is-small"><i class="fas fa-comment"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-share-square"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-heart"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
-          </a>
-          <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
-          </a>
-        </div>
-      </nav>
+      <div class="level-left">
+        <a class="level-item"> 
+          <span class="icon is-small"><i class="fas fa-comment"></i></span>
+        </a>
+        <a class="level-item">
+          <span class="icon is-small"><i class="fas fa-heart"></i></span>
+        </a>
+        <a   class="level-item">
+          <span onclick="likeButton()" class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
+        </a>
+        <a class="level-item">
+          <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
+        </a>
+        <a class="level-item">
+          <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
+        </a>
+      </div>
+    </nav>
     </div>
   </article>
 </div>
@@ -145,30 +147,11 @@ const viewPost = () =>
 </div>`;  
 }
 
-const likeButton = () => {
- Object.style.color = "red";
-}
-
 const closeViewPost = () => {
     let fbPosts = localStorage.getItem("FacebookPosts");
     const string2Post = JSON.parse(fbPosts);
     eleFbPosts.innerHTML= string2Post.join([separator = '  ']);
 }
-
-// let upload = () => {
-//   let getFile = document.getElementById("uploadFile");
-//   let file = getFile.file[0];
-
-//   var preview = document.getElementById("preview");
-//   preview.src = file.getAsDataURL();
-
-//   return false;
-// };
-
-// const editPost= () => {
-
-
-// }
 
 let attempt = 3;
 let validate = () => {
