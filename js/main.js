@@ -158,7 +158,7 @@ let validate = () => {
 let username = document.getElementById("username").value;
 let password = document.getElementById("password").value;
 if ( username == "Sunnyskp" && password == "sunny123"){
-window.location = "index.html";
+window.location = "homepage.html";
 }
 else{
 attempt --;
