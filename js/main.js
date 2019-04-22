@@ -12,14 +12,11 @@ const newPost = () => {
       return counter
     }
   })();
-  let getPostId=`postId${assignId()-1}`;
-  let getEditId=`editId${assignId()-2}`;
-  let getLikeId=`likePost${assignId()-3}`;
   
 
 storePosts.unshift(`
 <div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
-  <article id="${getPostId}" class="media">
+  <article id="${assignId()}" class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
         ${eleProfPic.innerHTML}<br>
@@ -40,11 +37,11 @@ storePosts.unshift(`
           <a class="level-item">
             <span class="icon is-small"><i class="fas fa-heart"></i></span>
           </a>
-          <a id="${getLikeId}"  class="level-item">
-            <span onclick="likeButton()" class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
           </a>
           <a class="level-item">
-            <span id="${getEditId}" class="icon is-small"><i class="fas fa-edit editPost"></i></span>
+            <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
           </a>
           <a class="level-item">
             <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
@@ -103,7 +100,7 @@ const viewPost = () =>
   </header>
   <section class="modal-card-body">
   <div onclick="viewPost()" class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
-  <article class="media">
+  <article id="${assignId()}" class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
         ${eleProfPic.innerHTML}<br>
@@ -124,8 +121,8 @@ const viewPost = () =>
         <a class="level-item">
           <span class="icon is-small"><i class="fas fa-heart"></i></span>
         </a>
-        <a   class="level-item">
-          <span onclick="likeButton()" class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
+        <a class="level-item">
+          <span class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
         </a>
         <a class="level-item">
           <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
