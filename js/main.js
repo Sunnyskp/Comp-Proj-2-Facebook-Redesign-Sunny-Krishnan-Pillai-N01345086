@@ -12,39 +12,46 @@ const newPost = () => {
       return counter
     }
   })();
+  let getPostId = `postId${assignId()}`;
+  let getViewPostId = `viewPostId${assignId()-1}`;
+  let getLikePostId = `likePostId${assignId()-2}`;
+  let getEditPostId = `editPostId${assignId()-3}`;
+  let getDeletePostId = `deletePostId${assignId()-4}`;
+  let getHeartPostId = `heartPostId${assignId()-5}`;
+  let getCommentPostId = `commentPostId${assignId()-6}`;
   
 
 storePosts.unshift(`
 <div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
-  <article id="${assignId()}" class="media">
+  <article id="${getPostId}" class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
         ${eleProfPic.innerHTML}<br>
       </p>
     </figure>
     <div  class="media-content">
-      <div onclick="viewPost()" class="content">
+      <div id="${getViewPostId}" onclick="viewPost()" class="content">
         <p>
-          <strong>Sunny Skp</strong> <small>@Sunny skp</small> <br>
+          <strong>Users Name</strong> <small>@Username</small> <br>
           <div>${eleUserInput.value}</div>
         </p>
       </div>
       <nav class="level is-mobile">
         <div class="level-left">
           <a class="level-item"> 
-            <span class="icon is-small"><i class="fas fa-comment"></i></span>
+            <span id="${getCommentPostId}" class="icon is-small"><i class="fas fa-comment"></i></span>
           </a>
           <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+            <span id="${getHeartPostId}" class="icon is-small"><i class="fas fa-heart"></i></span>
           </a>
           <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
+            <span id="${getLikePostId}" class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
           </a>
           <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
+            <span id="${getEditPostId}" class="icon is-small"><i class="fas fa-edit editPost"></i></span>
           </a>
           <a class="level-item">
-            <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
+            <span id="${getDeletePostId}" class="icon is-small"><i class="fas fa-trash-alt"></i></span>
           </a>
         </div>
       </nav>
@@ -83,8 +90,8 @@ const searchPost=()=> {
   }
   else{
   alert(`*****  Found in Character number ${n}  *****`);
-  n.value.style.color = "blue";
   }
+  document.getElementById('searchInput').value=``;
 }
 
 
@@ -154,7 +161,7 @@ let attempt = 3;
 let validate = () => {
 let username = document.getElementById("username").value;
 let password = document.getElementById("password").value;
-if ( username == "Sunnyskp" && password == "sunny123"){
+if ( username == "username" && password == "password"){
 window.location = "homepage.html";
 }
 else{
