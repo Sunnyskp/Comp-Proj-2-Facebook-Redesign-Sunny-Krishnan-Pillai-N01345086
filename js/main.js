@@ -1,102 +1,221 @@
 const eleFbPosts = document.getElementById("fbPosts");
 const eleUserInput = document.getElementById("UserInput");
 const eleProfPic = document.getElementById("profPic");
-const storePosts = [];
- let counter = 0;
-const newPost = () => {
-  let assignId = (function () {
-    
-       return function () 
-    {
-      counter += 1; 
-      return counter
-    }
-  })();
-  let getPostId = `postId${assignId()}`;
-  let getViewPostId = `viewPostId${assignId()-1}`;
-  let getLikePostId = `likePostId${assignId()-2}`;
-  let getEditPostId = `editPostId${assignId()-3}`;
-  let getDeletePostId = `deletePostId${assignId()-4}`;
-  let getHeartPostId = `heartPostId${assignId()-5}`;
-  let getCommentPostId = `commentPostId${assignId()-6}`;
-  
+let samplePost2String = [];
+let post2String = [];
 
-storePosts.unshift(`
+//........INPUTTING DEFAULT POSTS - FUNCTION..................
+
+defaultPosts = () => {
+  const samplePost = `
+  
+<!--......... SAMPLE POST NO:1 ....................-->
+
 <div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
-  <article id="${getPostId}" class="media">
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
+    </p>
+  </figure>
+  <div  class="media-content">
+    <div onclick="viewPost()" class="content">
+      <p>
+        <strong>Users Name</strong> <small>@Username</small> <br>
+        <div class="fb-post-figure-style">
+              <img src="http://images2.fanpop.com/images/photos/8400000/Cinderella-cinderella-8493295-150-260.gif"  class="fb-post-image-style" >
+        </div>
+      </p>
+    </div>
+  </div>
+</article>
+</div>
+
+<!--........ SAMPLE POST NO:2 ....................-->
+
+<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
+    </p>
+  </figure>
+  <div  class="media-content">
+    <div onclick="viewPost()" class="content">
+      <p>
+        <strong>Users Name</strong> <small>@Username</small> <br>
+        <div class="fb-post-figure-style">
+              <img src="https://png.pngtree.com/thumb_back/fh260/back_pic/04/10/85/2658188a5fd29a6.jpg"  class="fb-post-image-style" >
+        </div>
+      </p>
+    </div> 
+  </div>
+</article>
+</div>
+
+<!--........ SAMPLE POST NO:3 ....................-->
+
+<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
+    </p>
+  </figure>
+  <div  class="media-content">
+    <div onclick="viewPost()" class="content">
+      <p>
+        <strong>Users Name</strong> <small>@Username</small> <br>
+        <div class="fb-post-figure-style">
+        <p>Infuse your life with action. Don't wait for it to happen. Make it happen. Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high, but by doing what you can to make grace happen... yourself, right now, right down here on Earth...</p>
+        </div>
+      </p>
+    </div>   
+  </div>
+</article>
+</div>
+
+<!--......... SAMPLE POST NO:4 ....................-->
+
+<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
+    </p>
+  </figure>
+  <div  class="media-content">
+    <div onclick="viewPost()" class="content">
+      <p>
+        <strong>Users Name</strong> <small>@Username</small> <br>
+        <div class="fb-post-figure-style">
+        <img src="https://i.pinimg.com/236x/ec/34/c6/ec34c63209d7382e43433818d9012cb0--namaste-portal.jpg"  class="fb-post-image-style" >
+        </div>
+      </p>
+    </div> 
+  </div>
+</article>
+</div>
+
+<!--......... SAMPLE POST NO:5 .....................-->
+
+<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
+    </p>
+  </figure>
+  <div  class="media-content">
+    <div onclick="viewPost()" class="content">
+      <p>
+        <strong>Users Name</strong> <small>@Username</small> <br>
+        <div class="fb-post-figure-style">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyAa633KAfsEtV_sZ-k6OTBCqBcT6GCs7iBLwb-jKdeoEVCESU2A"  class="fb-post-image-style" >
+        </div>
+      </p>
+    </div>
+  </div>
+</article>
+</div>
+
+<!--......... SAMPLE POST NO:6 ....................-->
+
+<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
+    </p>
+  </figure>
+  <div  class="media-content">
+    <div onclick="viewPost()" class="content">
+      <p>
+        <strong>Users Name</strong> <small>@Username</small> <br>
+        <div class="fb-post-figure-style">
+              <p>Stay true to yourself, yet always be open to learn. Work hard, and never give up on your dreams, even when nobody else believes they can come true but you. These are not cliches but real tools you need no matter what you do in life to stay focused on your path...</p>
+        </div>
+      </p>
+    </div> 
+  </div>
+</article>
+</div>
+
+<!--......... SAMPLE POST NO:7 .....................-->
+
+<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-64x64 is-rounded">
+        ${eleProfPic.innerHTML}<br>
+    </p>
+  </figure>
+  <div  class="media-content">
+    <div onclick="viewPost()" class="content">
+      <p>
+        <strong>Users Name</strong> <small>@Username</small> <br>
+        <div class="fb-post-figure-style">
+        <p>No matter what has happened to you in the past or what is going on in your life right now, it has no power to keep you from having an amazingly good future if you will walk by faith in God. God loves you! He wants you to live with victory over sin so you can possess His promises for your life today...!</p>
+        </div>
+      </p>
+    </div>
+  </div>
+</article>
+</div>`;
+
+  samplePost2String = JSON.stringify(samplePost);
+  localStorage.setItem("FacebookPosts", samplePost2String);
+  return samplePost2String;
+}
+
+
+//.........CREATING A NEW POST - FUNCTION....................
+
+const newPost = (storePosts = `Share Your Mind..!!!`) => {
+  storePosts = (`<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+  <article class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
         ${eleProfPic.innerHTML}<br>
       </p>
     </figure>
     <div  class="media-content">
-      <div id="${getViewPostId}" onclick="viewPost()" class="content">
+      <div onclick="viewPost()" class="content">
         <p>
           <strong>Users Name</strong> <small>@Username</small> <br>
           <div>${eleUserInput.value}</div>
         </p>
       </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item"> 
-            <span id="${getCommentPostId}" class="icon is-small"><i class="fas fa-comment"></i></span>
-          </a>
-          <a class="level-item">
-            <span id="${getHeartPostId}" class="icon is-small"><i class="fas fa-heart"></i></span>
-          </a>
-          <a class="level-item">
-            <span id="${getLikePostId}" class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
-          </a>
-          <a class="level-item">
-            <span id="${getEditPostId}" class="icon is-small"><i class="fas fa-edit editPost"></i></span>
-          </a>
-          <a class="level-item">
-            <span id="${getDeletePostId}" class="icon is-small"><i class="fas fa-trash-alt"></i></span>
-          </a>
-        </div>
-      </nav>
     </div>
   </article>
-</div>`);
-const post2String = JSON.stringify(storePosts);
-localStorage.setItem("FacebookPosts",post2String);
-localStorage.getItem("FacebookPosts",post2String);
-const string2Post = JSON.parse(post2String);
-eleFbPosts.innerHTML= string2Post.join([separator = '  ']);
-eleUserInput.value="";
+</div>`) + JSON.parse(localStorage.getItem("FacebookPosts"));
+  eleFbPosts.innerHTML = storePosts;
+  post2String = JSON.stringify(storePosts);
+  localStorage.setItem("FacebookPosts", post2String);
+  eleUserInput.value = "";
+  return post2String;
 }
 
-window.onload = displayPosts = () => {
-  let fbPosts = localStorage.getItem("FacebookPosts");
-  if (fbPosts !== null) {
-  const string2Post = JSON.parse(fbPosts);
-  eleFbPosts.innerHTML+= string2Post.join([separator = '  ']);
-  }
-  else{
-    eleFbPosts.innerHTML=`<div class="title is-1 is-full has-text-centered has-text-link">----WELCOME TO NEW-REDESIGNED FACEBOOK----</div>
-    <div class="title is-2 has-text-centered is-full is-family-monospace has-text-info">------SHARE YOUR THOUGHTS WITH THE WORLD...!!!------</div>`;
-  }
-}
+//------------Onload Display Function---------------
 
-
-
-
-const searchPost=()=> {
-  let eleSearch = document.documentElement.innerHTML; 
-  let n = eleSearch.search(`${document.getElementById('searchInput').value}`);
-  if (n==-1)
-  {
-    alert(`Search Not Found`);
+let displayPosts = () => {
+  if ((localStorage.getItem("FacebookPosts")) == undefined) {
+    defaultPosts();
+    eleFbPosts.innerHTML = JSON.parse(localStorage.getItem("FacebookPosts"));
   }
-  else{
-  alert(`*****  Found in Character number ${n}  *****`);
-  }
-  document.getElementById('searchInput').value=``;
+
+  if (post2String != "")
+    eleFbPosts.innerHTML = JSON.parse(newPost(post2String)) + JSON.parse(localStorage.getItem("FacebookPosts"));
+  else
+    eleFbPosts.innerHTML = JSON.parse(localStorage.getItem("FacebookPosts"));
+
 }
 
 
-const viewPost = () => 
-{ 
+
+//...........VIEW ALL POST AS LISTING - FUNCTION....................
+
+const viewPost = () => {
   const displayPosts = document.getElementById('fbPosts');
   eleFbPosts.innerHTML = `
 <div class="modal is-active">
@@ -106,74 +225,54 @@ const viewPost = () =>
     <p class="modal-card-title "><p class="image is-64x64" id="profPic">${eleProfPic.innerHTML}</p></p>
   </header>
   <section class="modal-card-body">
-  <div onclick="viewPost()" class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+  <div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
   <article class="media">
-    <figure class="media-left">
-      <p class="image is-64x64 is-rounded">
-        ${eleProfPic.innerHTML}<br>
-      </p>
-    </figure>
     <div class="media-content">
       <div class="content">
         <p>
-          <strong>Sunny Skp</strong> <small>@Sunny skp</small> <br>
           <div>${displayPosts.innerHTML}</div>
         </p>
       </div>
-      <nav class="level is-mobile">
-      <div class="level-left">
-        <a class="level-item"> 
-          <span class="icon is-small"><i class="fas fa-comment"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-heart"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-thumbs-up"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-edit editPost"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-trash-alt"></i></span>
-        </a>
-      </div>
-    </nav>
     </div>
   </article>
-</div>
+  </div>
   </section>
   <footer class="modal-card-foot">
-    <button class="button is-success">Save changes</button>
-    <button onclick="closeViewPost()" class="button">Cancel</button>
+    <button onclick="location.href = '../homepage.html';" class="button is-info">Go back to Home Page...</button>
   </footer>
 </div>
-</div>`;  
+</div>`;
 }
 
-const closeViewPost = () => {
-    let fbPosts = localStorage.getItem("FacebookPosts");
-    const string2Post = JSON.parse(fbPosts);
-    eleFbPosts.innerHTML= string2Post.join([separator = '  ']);
+//...........SEARCHING A STRING INSIDE ALL POSTS - FUNCTION..........
+
+const searchPost = () => {
+  let eleSearch = document.documentElement.innerHTML;
+  let n = eleSearch.search(`${document.getElementById('searchInput').value}`);
+  if (n == -1) {
+    alert(`Search Not Found`);
+  } else {
+    alert(`*****  Found in Character number ${n}  *****`);
+  }
+  document.getElementById('searchInput').value = ``;
 }
+
+//..............LOGIN - FUNCTION.........................................
 
 let attempt = 3;
 let validate = () => {
-let username = document.getElementById("username").value;
-let password = document.getElementById("password").value;
-if ( username == "username" && password == "password"){
-window.location = "homepage.html";
+  let username = document.getElementById("username").value;
+  let password = document.getElementById("password").value;
+  if (username == "username" && password == "password") {
+    window.location = "homepage.html";
+  } else {
+    attempt--;
+    alert("You have left " + attempt + " attempt;");
+    if (attempt == 0) {
+      document.getElementById("username").disabled = true;
+      document.getElementById("password").disabled = true;
+      document.getElementById("loginButton").disabled = true;
+      return false;
+    }
+  }
 }
-else{
-attempt --;
-alert("You have left "+attempt+" attempt;");
-if( attempt == 0){
-document.getElementById("username").disabled = true;
-document.getElementById("password").disabled = true;
-document.getElementById("loginButton").disabled = true;
-return false;
-}
-}
-}
-
-

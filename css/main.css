@@ -1,49 +1,61 @@
-a.navbar-dropdown{
+a.navbar-dropdown {
 	color: rgb(0, 0, 0);
-	}
-a.navbar-item{
-color: rgb(255, 255, 255);
 }
-a.navbar-link{
+
+a.navbar-item {
+	color: rgb(255, 255, 255);
+}
+
+a.navbar-link {
 	color: #ffffff;
-	}
-
-.style{
-   padding: 1em 1em;
 }
 
-.header-style{
+.style {
+	padding: 1em 1em;
+}
+
+.header-style {
 	background-color: #3C5A99;
 	border-radius: 0.5em;
 }
 
-.hero-bg{
-   background-image: url(../img/hero-bg.png);
+.hero-bg {
+	background-image: url(../img/hero-bg.png);
 }
 
-a.navbar-burger{
+a.navbar-burger {
 	color: #ffffff;
 }
 
 
-.logo-column-style{
-	width:10em;
+.logo-column-style {
+	width: 10em;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: auto;
 	margin-bottom: auto;
-	}
+}
 
-div.columns-style{
+div.columns-style {
 	margin-top: 0.5em;
 	border: 1px;
 	padding: 1em;
-	
+
+}
+
+.fb-post-figure-style {
+	align-items: left;
+	padding-right: 2em;
+	text-align: justify;
+}
+
+.fb-post-image-style {
+	width: 150px;
+	height: 260px;
 }
 
 
-
-#fbPosts > .column-style{
+#fbPosts>.column-style {
 	margin: 0.5em;
 	padding: 0.5em;
 	border: 0.25px;
@@ -54,46 +66,37 @@ div.columns-style{
 	min-width: 18em;
 	height: 24em;
 	overflow-y: auto;
-	
+
 }
 
 @media screen and (max-width:768px) {
 
-	.logo-style{
+	.logo-style {
 		display: none;
 	}
 
-	.menu{
+	.menu {
 		display: none;
 	}
 
-	#fbPosts > .column-style{
-		width:fit-content;
+	#fbPosts>.column-style {
+		width: fit-content;
 	}
 
-	.button-style{
+	.button-style {
 		margin: 0.5rem 0;
-		width:100%;
+		width: 100%;
 	}
 
+}
+
+@media screen and (min-width:769px) {
+	.menu-list-style {
+		border: 0.25px;
+		border-style: solid;
+		border-color: #3C5A99;
+		border-radius: 8px;
+		box-shadow: 1px 2px 4px #3C5A99;
+		margin: 0.5em;
 	}
-
-
-	.content.image-style{
-		text-align: center;
-		width:30em;
-	}
-
-	@media screen and (min-width:769px) {
-		.menu-list-style{
-			border: 0.25px;
-			border-style: solid;
-			border-color: #3C5A99;
-			border-radius: 8px;
-			box-shadow: 1px 2px 4px #3C5A99;
-			margin: 0.5em;
-		}
-	}
-
-
-
+}

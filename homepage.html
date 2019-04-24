@@ -13,7 +13,7 @@
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
 
-<body class="style">
+<body onload="displayPosts()" class="style">
   <div class="columns header-style ">
     <div class="column logo-column-style is-one-fifth column-style">
       <a class="logo-style" href="" >
@@ -96,9 +96,10 @@
                     </span>
                   </label>
                 </div> -->
-            <div class="level-left">
-              <div class="level-left ">
-                  <a onclick="newPost()" class="button is-info button-style">Share Your Mind..!</a>
+            <div>
+              <div class="level-left">
+                  <a onclick="newPost()" class="button is-info button-style level-item">Share Your Mind..!</a>
+                  <a onclick="viewPost()" class="button is-info level-item">View Posts as Listings...</a>
               </div>
             </div>
             </nav>
@@ -133,6 +134,11 @@
     <!-- FB POST COLUMNS -->
     <div class="column">
       <div id="fbPosts" class="columns is-multiline is-desktop">
+
+    <!---------NEW FB POSTS GETS ADDED HERE USING JS FUNCTION-------->
+
+    <!-----ALSO SOME DEFAULT FBPOSTS ADDED HERE USING JS FUNCTION----->
+
      <!-- FB POST COLUMNS END -->
     </div>
     </div>
