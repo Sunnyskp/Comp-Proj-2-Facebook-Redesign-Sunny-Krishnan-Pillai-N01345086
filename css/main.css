@@ -47,6 +47,8 @@ div.columns-style {
 	align-items: left;
 	padding-right: 2em;
 	text-align: justify;
+	min-width: 150px;
+	height: 260px;
 }
 
 .fb-post-image-style {
@@ -77,10 +79,6 @@ div.columns-style {
 
 	.menu {
 		display: none;
-	}
-
-	#fbPosts>.column-style {
-		width: fit-content;
 	}
 
 	.button-style {
