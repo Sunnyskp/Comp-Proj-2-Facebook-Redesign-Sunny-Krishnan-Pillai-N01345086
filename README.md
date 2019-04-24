@@ -1,6 +1,9 @@
 # Comp-Proj-2-Facebook-Redesign-Sunny-Krishnan-Pillai-N01345086
 
-LIVE LINK:  www.sunnyskp.ca
+LIVE LINK:  www.sunnyskp.ca 
+
+            Username: "username"
+            Password: "password"
 
 Redesigning and Improving the Social Media Platform- Facebook
 
