@@ -263,16 +263,31 @@ let attempt = 3;
 let validate = () => {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
-  if (username == "username" && password == "password") {
+
+    
+  if (username == JSON.parse(localStorage.getItem("Username")) && password == JSON.parse(localStorage.getItem("Password"))) {
     window.location = "homepage.html";
-  } else {
+  } 
+  
+  else {
     attempt--;
     alert("You have left " + attempt + " attempt;");
-    if (attempt == 0) {
+    if (attempt == 0) 
       document.getElementById("username").disabled = true;
       document.getElementById("password").disabled = true;
       document.getElementById("loginButton").disabled = true;
       return false;
     }
-  }
+  
+
 }
+
+let signUp = () => {
+
+  let signUpUsername = document.getElementById("signUpUsername").value;
+  username2String = JSON.stringify(signUpUsername);
+  localStorage.setItem("Username", username2String);
+  let signUpPassword = document.getElementById("signUpPassword").value;
+  password2String = JSON.stringify(signUpPassword);
+  localStorage.setItem("Password", password2String);
+};
