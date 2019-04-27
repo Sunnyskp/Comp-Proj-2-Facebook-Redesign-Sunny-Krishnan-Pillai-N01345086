@@ -264,30 +264,42 @@ let validate = () => {
   let username = document.getElementById("username").value;
   let password = document.getElementById("password").value;
 
-    
+
   if (username == JSON.parse(localStorage.getItem("Username")) && password == JSON.parse(localStorage.getItem("Password"))) {
     window.location = "homepage.html";
-  } 
-  
-  else {
+  } else {
     attempt--;
     alert("You have left " + attempt + " attempt;");
-    if (attempt == 0) 
+    if (attempt == 0)
       document.getElementById("username").disabled = true;
-      document.getElementById("password").disabled = true;
-      document.getElementById("loginButton").disabled = true;
-      return false;
-    }
-  
-
+    document.getElementById("password").disabled = true;
+    document.getElementById("loginButton").disabled = true;
+    return false;
+  }
 }
+
+
+//..............Sign Up - FUNCTION.........................................
 
 let signUp = () => {
 
   let signUpUsername = document.getElementById("signUpUsername").value;
-  username2String = JSON.stringify(signUpUsername);
-  localStorage.setItem("Username", username2String);
   let signUpPassword = document.getElementById("signUpPassword").value;
-  password2String = JSON.stringify(signUpPassword);
-  localStorage.setItem("Password", password2String);
-};
+  let confirmSignUpPassword = document.getElementById("confirmSignUpPassword").value; {
+    if (signUpUsername && signUpPassword && confirmSignUpPassword != "") {
+      username2String = JSON.stringify(signUpUsername);
+      localStorage.setItem("Username", username2String); {
+        if (signUpPassword === confirmSignUpPassword) {
+          password2String = JSON.stringify(signUpPassword);
+          localStorage.setItem("Password", password2String);
+          alert("User Profile Created...!!!!!")
+          window.location = "index.html";
+        } else {
+          alert("Password Doesn't Match")
+        }
+      }
+    } else {
+      alert("Please fill all required* fields")
+    }
+  }
+}
