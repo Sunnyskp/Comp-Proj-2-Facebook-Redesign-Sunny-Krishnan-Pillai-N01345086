@@ -2,8 +2,7 @@
 
 LIVE LINK:  www.sunnyskp.ca 
 
-            Username: "username"
-            Password: "password"
+>PLEASE SIGN UP TO LOGIN... USERNAME AND PASSWORD FIELD IS MANDATORY IN THE SIGN UP PAGE(VALIDATIONS APPLIED)
 
 Redesigning and Improving the Social Media Platform- Facebook
 
