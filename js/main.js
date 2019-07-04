@@ -4,6 +4,7 @@ const eleProfPic = document.getElementById("profPic");
 let displayUserName = JSON.parse(localStorage.getItem("Username"));
 let samplePost2String = [];
 let post2String = [];
+let postID = 1008;
 
 //........INPUTTING DEFAULT POSTS - FUNCTION..................
 
@@ -12,7 +13,7 @@ defaultPosts = () => {
   
 <!--......... SAMPLE POST NO:1 ....................-->
 
-<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<div id=1001 class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
 <article class="media">
   <figure class="media-left">
     <p class="image is-64x64 is-rounded">
@@ -34,7 +35,7 @@ defaultPosts = () => {
 
 <!--........ SAMPLE POST NO:2 ....................-->
 
-<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<div id=1002 class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
 <article class="media">
   <figure class="media-left">
     <p class="image is-64x64 is-rounded">
@@ -56,7 +57,7 @@ defaultPosts = () => {
 
 <!--........ SAMPLE POST NO:3 ....................-->
 
-<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<div id=1003 class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
 <article class="media">
   <figure class="media-left">
     <p class="image is-64x64 is-rounded">
@@ -78,7 +79,7 @@ defaultPosts = () => {
 
 <!--......... SAMPLE POST NO:4 ....................-->
 
-<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<div id=1004 class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
 <article class="media">
   <figure class="media-left">
     <p class="image is-64x64 is-rounded">
@@ -100,7 +101,7 @@ defaultPosts = () => {
 
 <!--......... SAMPLE POST NO:5 .....................-->
 
-<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<div id=1005 class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
 <article class="media">
   <figure class="media-left">
     <p class="image is-64x64 is-rounded">
@@ -122,7 +123,7 @@ defaultPosts = () => {
 
 <!--......... SAMPLE POST NO:6 ....................-->
 
-<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<div id=1006 class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
 <article class="media">
   <figure class="media-left">
     <p class="image is-64x64 is-rounded">
@@ -144,7 +145,7 @@ defaultPosts = () => {
 
 <!--......... SAMPLE POST NO:7 .....................-->
 
-<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+<div id=1007 class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
 <article class="media">
   <figure class="media-left">
     <p class="image is-64x64 is-rounded">
@@ -173,7 +174,7 @@ defaultPosts = () => {
 //.........CREATING A NEW POST - FUNCTION....................
 
 const newPost = (storePosts = `Share Your Mind..!!!`) => {
-  storePosts = (`<div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
+  storePosts = (`<div id=${postID} class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
   <article class="media">
     <figure class="media-left">
       <p class="image is-64x64 is-rounded">
@@ -194,6 +195,7 @@ const newPost = (storePosts = `Share Your Mind..!!!`) => {
   post2String = JSON.stringify(storePosts);
   localStorage.setItem("FacebookPosts", post2String);
   eleUserInput.value = "";
+  postID++;
   return post2String;
 }
 
@@ -218,12 +220,14 @@ let displayPosts = () => {
 
 const viewPost = () => {
   const displayPosts = document.getElementById('fbPosts');
-  eleFbPosts.innerHTML = `
+  displayPosts.addEventListener(`click`, (event) => {
+    let selectedPost = event.target.closest(`.column-style`);
+    if (!selectedPost) return;
+    eleFbPosts.innerHTML = `
 <div class="modal is-active">
 <div class="modal-background"></div>
 <div class="modal-card">
   <header class="modal-card-head">
-    <p class="modal-card-title "><p class="image is-64x64" id="profPic">${eleProfPic.innerHTML}</p></p>
   </header>
   <section class="modal-card-body">
   <div class="column-style column is-mobile is-tablet is-desktop is-widescreen is-fullhd">
@@ -231,7 +235,7 @@ const viewPost = () => {
     <div class="media-content">
       <div class="content">
         <p>
-          <div>${displayPosts.innerHTML}</div>
+          <div>${selectedPost.innerHTML}</div>
         </p>
       </div>
     </div>
@@ -243,6 +247,7 @@ const viewPost = () => {
   </footer>
 </div>
 </div>`;
+  });
 }
 
 //...........SEARCHING A STRING INSIDE ALL POSTS - FUNCTION..........
